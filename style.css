@@ -95,3 +95,63 @@
     background-color: #28a745; /* Green color */
     box-shadow: 0 0 30px rgba(40, 167, 69, 0.8);
 }
+/* --- OVERHEAD STRUCTURE STYLING --- */
+
+.intersection-wrapper {
+    /* Set up a container to position the pole and arm */
+    position: relative; 
+    display: flex;
+    justify-content: flex-start; /* Start elements from the left */
+    align-items: flex-end; /* Align the bottom of the structure */
+    width: 90vw; /* Make the structure wide */
+    min-height: 500px;
+    margin-bottom: 20px;
+}
+
+/* The vertical pole on the left */
+.support-pole {
+    width: 20px;
+    height: 100%; /* Spans the full height of the wrapper */
+    background: linear-gradient(to bottom, #777, #555); /* Simple metallic gradient */
+    border-radius: 5px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: 0; /* Keep it behind the lights */
+}
+
+/* The horizontal arm holding the lights */
+.overhead-arm {
+    /* This arm will start where the pole is and stretch right */
+    background: linear-gradient(to right, #777, #555); 
+    height: 15px;
+    width: 100%;
+    position: absolute;
+    top: 50px; /* Position it high up */
+    left: 0;
+    z-index: 0;
+}
+
+/* Reposition the light containers to sit on the arm */
+.road-signal {
+    /* Allow road signals to position themselves absolutely relative to the arm */
+    position: absolute; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#industrial-blvd {
+    left: 10%; /* Position first light set */
+}
+
+#stonecrest-pkwy {
+    right: 10%; /* Position second light set */
+}
+
+/* Adjust the street signs to look like they are hanging */
+.street-sign {
+    top: 0; /* Remove previous height offset */
+    margin-bottom: 10px;
+    border: 2px solid white;
+}
