@@ -112,7 +112,7 @@
 .support-pole {
     width: 20px;
     height: 100%; /* Spans the full height of the wrapper */
-    background: linear-gradient(to bottom, #777, #555); /* Simple metallic gradient */
+    background: linear-gradient(to bottom, #777, #555);
     border-radius: 5px;
     position: absolute;
     left: 0;
@@ -122,22 +122,19 @@
 
 /* The horizontal arm holding the lights */
 .overhead-arm {
-    /* This arm will start where the pole is and stretch right */
     background: linear-gradient(to right, #777, #555); 
     height: 15px;
     width: 100%;
     position: absolute;
-    top: 50px; /* Position it high up */
+    top: 50px; 
     left: 0;
     z-index: 0;
 }
 
 /* Reposition the light containers to sit on the arm */
 .road-signal {
-    /* This line is the crucial fix for visibility */
+    /* THIS LINE IS CRUCIAL: Lights must be above the arm (z-index: 0) */
     z-index: 10; 
-
-    /* These lines are your EXISTING styles for positioning */
     position: absolute; 
     display: flex;
     flex-direction: column;
@@ -154,7 +151,7 @@
 
 /* Adjust the street signs to look like they are hanging */
 .street-sign {
-    top: 0; /* Remove previous height offset */
+    top: 0; 
     margin-bottom: 10px;
     border: 2px solid white;
 }
