@@ -1,14 +1,9 @@
 /* --- Global Reset and Body --- */
 body {
     background-color: lightblue
-    display: flex;
-    justify-content: center;
-    align-items: flex-start; /* Align structure to the top */
-    min-height: 100vh;
+    /* Test color */
     margin: 0;
-    padding: 20px 0;
-    background-color: #f0f0f0;
-    font-family: Arial, sans-serif;
+    padding: 0;
 }
 
 /* --- OVERHEAD STRUCTURE STYLING --- */
