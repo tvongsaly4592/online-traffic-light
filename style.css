@@ -1,5 +1,6 @@
 /* --- Global Reset and Body --- */
 body {
+    background-color: lightblue
     display: flex;
     justify-content: center;
     align-items: flex-start; /* Align structure to the top */
