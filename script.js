@@ -1,4 +1,3 @@
-That's great! You now have the structure (index.html) and the visual style (style.css) for your traffic lights committed to your repository.The final step is to create the script.js file to add the functional logic that makes the lights cycle automatically.⚙️ Next Step: Create and Commit script.jsFollow the same steps you used before: go to your repository, click "Add file" > "Create new file", and name it:$$\mathbf{script.js}$$Then, paste the following JavaScript code into the editor.💻 Functional Logic (script.js)This code implements the two-way intersection logic, ensuring that when one road is green, the intersecting road is red, and vice-versa, with proper timing delays for yellow lights.JavaScript// --- Configuration ---
 const TIMING = {
     GREEN: 5000, // 5 seconds
     YELLOW: 2000, // 2 seconds
