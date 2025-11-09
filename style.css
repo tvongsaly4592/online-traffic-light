@@ -134,7 +134,10 @@
 
 /* Reposition the light containers to sit on the arm */
 .road-signal {
-    /* Allow road signals to position themselves absolutely relative to the arm */
+    /* This line is the crucial fix for visibility */
+    z-index: 10; 
+
+    /* These lines are your EXISTING styles for positioning */
     position: absolute; 
     display: flex;
     flex-direction: column;
