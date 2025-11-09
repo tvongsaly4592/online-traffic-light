@@ -1,3 +1,69 @@
+/* --- Global Reset and Body --- */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Align structure to the top */
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px 0;
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+}
+
+/* --- OVERHEAD STRUCTURE STYLING --- */
+
+.intersection-wrapper {
+    /* Set up a container to position the pole and arm */
+    position: relative; 
+    display: flex;
+    justify-content: flex-start; 
+    align-items: flex-end; 
+    width: 90vw; 
+    min-height: 500px;
+    margin-bottom: 20px;
+}
+
+/* The vertical pole on the left */
+.support-pole {
+    width: 20px;
+    height: 100%; 
+    background: linear-gradient(to bottom, #777, #555); 
+    border-radius: 5px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: 0; 
+}
+
+/* The horizontal arm holding the lights */
+.overhead-arm {
+    background: linear-gradient(to right, #777, #555); 
+    height: 15px;
+    width: 100%;
+    position: absolute;
+    top: 50px; 
+    left: 0;
+    z-index: 0;
+}
+
+/* --- Signal Grouping and Positioning --- */
+.road-signal {
+    /* CRUCIAL: Lights must be above the arm (z-index: 0) */
+    z-index: 10; 
+    position: absolute; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#industrial-blvd {
+    left: 10%; 
+}
+
+#stonecrest-pkwy {
+    right: 10%; 
+}
+
 /* --- Traffic Light Head (More Realistic Housing) --- */
 .signal-head {
     /* Main body styling: Darker, with a subtle 3D appearance */
@@ -12,9 +78,8 @@
     flex-direction: column; 
     gap: 8px; /* Slightly tighter spacing */
     
-    /* Add a visor/hood effect around the light holes */
     position: relative;
-    z-index: 1; /* Ensure lights are above the background */
+    z-index: 1; 
 }
 
 /* --- Individual Light Styling (OFF State with Bezel/Recess) --- */
@@ -24,11 +89,11 @@
     border-radius: 50%;
     
     /* Simulate the recessed housing and dark lens */
-    background-color: #111; /* Very dark interior */
-    border: 3px solid #444; /* Outer ring/bezel */
+    background-color: #111; 
+    border: 3px solid #444; 
     box-shadow: 
-        inset 0 0 15px rgba(0, 0, 0, 0.9), /* Deep inner shadow for recess */
-        0 1px 3px rgba(0, 0, 0, 0.5); /* Subtle outer shadow */
+        inset 0 0 15px rgba(0, 0, 0, 0.9), 
+        0 1px 3px rgba(0, 0, 0, 0.5); 
 
     transition: background-color 0.1s, box-shadow 0.1s;
 }
@@ -36,7 +101,6 @@
 /* --- Light Styling (ON State - Stronger Glow) --- */
 .light.on.red {
     background-color: #ff0000;
-    /* Stronger, wider glow */
     box-shadow: 0 0 40px #ff0000, 0 0 20px #ff0000; 
 }
 
@@ -46,112 +110,21 @@
 }
 
 .light.on.green {
-    background-color: #00ff00; /* Use a brighter green */
+    background-color: #00ff00; 
     box-shadow: 0 0 40px #00ff00, 0 0 20px #00ff00;
 }
-    border-radius: 5px;
-    font-size: 24px;
-    font-weight: bold;
-    text-align: center;
-    margin-bottom: 20px;
-    position: relative;
-    top: -50px; /* Adjust height relative to the lights */
-}
 
-/* --- Traffic Light Head --- */
-.signal-head {
-    background-color: #333; /* Dark housing for the lights */
-    padding: 10px;
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column; /* Stacks the lights vertically */
-    gap: 10px;
-}
-
-/* --- Individual Light Styling (OFF State) --- */
-.light {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    background-color: #222; /* Darker off-state color */
-    border: 2px solid #555;
-    transition: background-color 0.1s, box-shadow 0.1s; /* Smooth transition */
-}
-
-/* --- Light Styling (ON State) --- */
-
-/* The JavaScript will add the 'on' class to activate these styles */
-.light.on.red {
-    background-color: red;
-    box-shadow: 0 0 30px rgba(255, 0, 0, 0.8);
-}
-
-.light.on.yellow {
-    background-color: #ffc107; /* Amber color */
-    box-shadow: 0 0 30px rgba(255, 193, 7, 0.8);
-}
-
-.light.on.green {
-    background-color: #28a745; /* Green color */
-    box-shadow: 0 0 30px rgba(40, 167, 69, 0.8);
-}
-/* --- OVERHEAD STRUCTURE STYLING --- */
-
-.intersection-wrapper {
-    /* Set up a container to position the pole and arm */
-    position: relative; 
-    display: flex;
-    justify-content: flex-start; /* Start elements from the left */
-    align-items: flex-end; /* Align the bottom of the structure */
-    width: 90vw; /* Make the structure wide */
-    min-height: 500px;
-    margin-bottom: 20px;
-}
-
-/* The vertical pole on the left */
-.support-pole {
-    width: 20px;
-    height: 100%; /* Spans the full height of the wrapper */
-    background: linear-gradient(to bottom, #777, #555);
-    border-radius: 5px;
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    z-index: 0; /* Keep it behind the lights */
-}
-
-/* The horizontal arm holding the lights */
-.overhead-arm {
-    background: linear-gradient(to right, #777, #555); 
-    height: 15px;
-    width: 100%;
-    position: absolute;
-    top: 50px; 
-    left: 0;
-    z-index: 0;
-}
-
-/* Reposition the light containers to sit on the arm */
-.road-signal {
-    /* THIS LINE IS CRUCIAL: Lights must be above the arm (z-index: 0) */
-    z-index: 10; 
-    position: absolute; 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-#industrial-blvd {
-    left: 10%; /* Position first light set */
-}
-
-#stonecrest-pkwy {
-    right: 10%; /* Position second light set */
-}
-
-/* Adjust the street signs to look like they are hanging */
+/* --- Street Sign Styling --- */
 .street-sign {
-    top: 0; 
+    background-color: #00a049; 
+    color: white;
+    padding: 5px 15px;
     margin-bottom: 10px;
+    border-radius: 5px;
+    font-size: 1.5em;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    /* For the structural style */
+    top: 0; 
     border: 2px solid white;
 }
